@@ -7,8 +7,8 @@ import {
 } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 
-@Entity('users')
-export class User {
+@Entity('products')
+export class Product {
   @PrimaryColumn()
   id: string;
 
@@ -16,10 +16,10 @@ export class User {
   name: string;
 
   @Column()
-  email: string;
+  price: number;
 
   @Column()
-  password: string;
+  quantity: number;
 
   @CreateDateColumn()
   created_at: Date;
