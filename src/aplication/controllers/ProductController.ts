@@ -1,6 +1,7 @@
-import { CreateProduct } from 'aplication/usecases/CreateProduct';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+
+import { CreateProduct } from '../usecases/CreateProduct';
 
 export class ProductController {
   async handle(request: Request, response: Response): Promise<Response> {
