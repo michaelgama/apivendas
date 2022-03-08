@@ -1,9 +1,17 @@
 import { Router } from 'express';
 
-import { ProductController } from '../../../aplication/controllers/ProductController';
+import { CreateProductController } from '../../../aplication/controllers/CreateProductController';
+import { ShowProductController } from '../../../aplication/controllers/ShowProductController';
+import { ensureAuthenticated } from '../middleware/ensureAuthenticated';
 
 export const productsRoutes = Router();
 
-const productController = new ProductController();
+const createProductController = new CreateProductController();
+const showProductController = new ShowProductController();
 
-productsRoutes.post('/', productController.handle);
+productsRoutes.post('/', ensureAuthenticated, createProductController.handle);
+productsRoutes.get(
+  '/showproduct',
+  ensureAuthenticated,
+  showProductController.handle,
+);

@@ -32,4 +32,9 @@ export class ProductCore implements IProductsRepository {
     const product = await this.repository.findOne({ name });
     return product;
   }
+
+  async findById(id: string): Promise<Product> {
+    const user = await this.repository.findOne(id);
+    return user;
+  }
 }

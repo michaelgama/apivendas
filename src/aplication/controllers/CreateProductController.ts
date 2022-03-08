@@ -3,7 +3,7 @@ import { container } from 'tsyringe';
 
 import { CreateProduct } from '../usecases/CreateProduct';
 
-export class ProductController {
+export class CreateProductController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, price, quantity } = request.body;
 
