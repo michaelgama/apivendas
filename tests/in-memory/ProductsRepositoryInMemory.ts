@@ -28,4 +28,8 @@ export class ProductRepositoryInMemory implements IProductsRepository {
   async findById(id: string): Promise<Product> {
     return this.products.find(product => product.id === id);
   }
+
+  async findByProducts(): Promise<Product[]> {
+    return this.products;
+  }
 }
