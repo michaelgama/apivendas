@@ -42,4 +42,8 @@ export class ProductCore implements IProductsRepository {
     const products = await this.repository.find();
     return products;
   }
+
+  async remove(id: Product): Promise<void> {
+    await this.repository.remove(id);
+  }
 }
