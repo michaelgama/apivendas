@@ -37,7 +37,7 @@ export class ProductController {
 
     const products = await listProduct.execute();
 
-    return response.json(products);
+    return response.status(200).json(products);
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
@@ -58,6 +58,6 @@ export class ProductController {
 
     await removeProduct.execute({ id });
 
-    return response.json([]);
+    return response.status(204).json([]);
   }
 }

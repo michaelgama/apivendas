@@ -123,6 +123,32 @@ describe('Product Controller', () => {
     expect(resposeUpdateProduct.statusCode).toBe(201);
   });
 
+  it('should be able to delete product', async () => {
+    const responseToken = await request(app).post('/sessions').send({
+      email: 'admin@test.com',
+      password: 'admin',
+    });
+
+    const { token } = responseToken.body;
+
+    const product = {
+      name: 'Product5',
+      price: 8.0,
+      quantity: 5,
+    };
+
+    const response = await request(app)
+      .post('/products')
+      .send(product)
+      .set({ Authorization: `Bearer ${token}` });
+
+    const resposeDeleteProduct = await request(app)
+      .delete(`/products/${response.body.id}`)
+      .set({ Authorization: `Bearer ${token}` });
+
+    expect(resposeDeleteProduct.statusCode).toBe(204);
+  });
+
   afterAll(async () => {
     await connection.dropDatabase();
     await connection.close();
