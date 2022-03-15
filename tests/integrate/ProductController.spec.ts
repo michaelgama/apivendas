@@ -99,19 +99,19 @@ describe('Product Controller', () => {
 
     const { token } = responseToken.body;
 
-    const products = {
-      name: 'Product7',
+    const product = {
+      name: 'Product4',
       price: 8.0,
       quantity: 5,
     };
 
     const response = await request(app)
       .post('/products')
-      .send(products)
+      .send(product)
       .set({ Authorization: `Bearer ${token}` });
 
     const updateProducts = {
-      ...products,
+      ...product,
       name: 'update_product',
     };
 

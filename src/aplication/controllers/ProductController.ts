@@ -13,13 +13,13 @@ export class ProductController {
 
     const createProduct = container.resolve(CreateProduct);
 
-    await createProduct.execute({
+    const product = await createProduct.execute({
       name,
       price,
       quantity,
     });
 
-    return response.status(201).send();
+    return response.status(201).json(product);
   }
 
   public async show(request: Request, response: Response): Promise<Response> {
@@ -29,7 +29,7 @@ export class ProductController {
 
     const product = await showProduct.execute({ name: name as string });
 
-    return response.json(product);
+    return response.status(200).json(product);
   }
 
   public async list(request: Request, response: Response): Promise<Response> {

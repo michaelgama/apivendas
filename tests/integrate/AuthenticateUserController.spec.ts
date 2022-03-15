@@ -8,7 +8,7 @@ import { v4 as uuidV4 } from 'uuid';
 
 let connection: Connection;
 
-describe('Product Controller', () => {
+describe('Authenticate Controller', () => {
   beforeAll(async () => {
     connection = await createConnection();
     await connection.runMigrations();
