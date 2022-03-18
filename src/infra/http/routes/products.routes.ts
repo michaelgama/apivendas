@@ -1,6 +1,6 @@
+import { ProductController } from '@controllers/ProductController';
 import { Router } from 'express';
 
-import { ProductController } from '../../../aplication/controllers/ProductController';
 import { ensureAuthenticated } from '../middleware/ensureAuthenticated';
 
 export const productsRoutes = Router();
