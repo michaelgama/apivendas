@@ -7,7 +7,7 @@ import { inject, injectable } from 'tsyringe';
 @injectable()
 export class CreateCustomer {
   constructor(
-    @inject('')
+    @inject('CustomerCore')
     private customerRepository: ICustomerRepository,
   ) {}
 
