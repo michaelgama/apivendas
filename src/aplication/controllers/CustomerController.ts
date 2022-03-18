@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { CreateCustomer } from '../usecases/CreateCustomer';
+import { CreateCustomer } from '../usecases/Customer/CreateCustomer';
 
 export class CustommerController {
   async create(request: Request, response: Response): Promise<Response> {
