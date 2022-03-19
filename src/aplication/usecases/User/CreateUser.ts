@@ -1,5 +1,5 @@
 import { AppError } from '@infra/errors/AppError';
-import { IUsersRepository } from 'aplication/repositories/IUsersRepository';
+import { IUsersRepository } from 'aplication/repositories';
 import { hash } from 'bcrypt';
 import { User } from 'domain/entities/User';
 import { ICreateUser } from 'domain/models/ICreateUser';

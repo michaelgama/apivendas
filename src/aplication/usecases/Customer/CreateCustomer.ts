@@ -1,6 +1,6 @@
 import { Customer } from '@domain/entities/Customer';
 import { AppError } from '@infra/errors/AppError';
-import { ICustomerRepository } from 'aplication/repositories/ICustomerRepository';
+import { ICustomerRepository } from 'aplication/repositories';
 import { ICreateCustomer } from 'domain/models/ICreateCustomer';
 import { inject, injectable } from 'tsyringe';
 

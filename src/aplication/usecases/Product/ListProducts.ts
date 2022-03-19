@@ -1,5 +1,5 @@
 import { Product } from '@domain/entities/Product';
-import { IProductsRepository } from 'aplication/repositories/IProductsRepository';
+import { IProductsRepository } from 'aplication/repositories';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()

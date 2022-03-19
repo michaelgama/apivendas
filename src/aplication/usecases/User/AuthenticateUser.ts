@@ -1,5 +1,5 @@
 import { AppError } from '@infra/errors/AppError';
-import { IUsersRepository } from 'aplication/repositories/IUsersRepository';
+import { IUsersRepository } from 'aplication/repositories';
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';

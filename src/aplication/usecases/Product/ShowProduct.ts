@@ -1,6 +1,6 @@
 import { Product } from '@domain/entities/Product';
 import { AppError } from '@infra/errors/AppError';
-import { IProductsRepository } from 'aplication/repositories/IProductsRepository';
+import { IProductsRepository } from 'aplication/repositories';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
