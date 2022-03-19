@@ -1,8 +1,8 @@
 import { AppError } from '@infra/errors/AppError';
 import 'reflect-metadata';
 
-import { ShowProduct } from '../../src/aplication/usecases/Product/ShowProduct';
-import { ProductRepositoryInMemory } from '../in-memory/ProductsRepositoryInMemory';
+import { ShowProduct } from '../../../src/aplication/usecases/Product/ShowProduct';
+import { ProductRepositoryInMemory } from '../../in-memory/ProductsRepositoryInMemory';
 
 let showProduct: ShowProduct;
 let productRepositoryInMemory: ProductRepositoryInMemory;

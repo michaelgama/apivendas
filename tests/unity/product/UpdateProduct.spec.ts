@@ -1,8 +1,8 @@
 import { AppError } from '@infra/errors/AppError';
 import 'reflect-metadata';
 
-import { UpdateProduct } from '../../src/aplication/usecases/Product/UpdateProduct';
-import { ProductRepositoryInMemory } from '../in-memory/ProductsRepositoryInMemory';
+import { UpdateProduct } from '../../../src/aplication/usecases/Product/UpdateProduct';
+import { ProductRepositoryInMemory } from '../../in-memory/ProductsRepositoryInMemory';
 
 let updateProduct: UpdateProduct;
 let productRepositoryInMemory: ProductRepositoryInMemory;
