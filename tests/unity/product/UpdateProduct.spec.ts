@@ -1,5 +1,5 @@
-import { AppError } from '@infra/errors/AppError';
 import 'reflect-metadata';
+import { AppError } from '@infra/errors/AppError';
 
 import { UpdateProduct } from '../../../src/aplication/usecases/Product/UpdateProduct';
 import { ProductRepositoryInMemory } from '../../in-memory/ProductsRepositoryInMemory';

@@ -32,4 +32,9 @@ export class CustomerCore implements ICustomerRepository {
     const customer = await this.repository.findOne({ phone });
     return customer;
   }
+
+  async findByName(name: string): Promise<Customer> {
+    const customer = await this.repository.findOne({ name });
+    return customer;
+  }
 }

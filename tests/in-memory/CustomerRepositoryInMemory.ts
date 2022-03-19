@@ -28,4 +28,8 @@ export class CustomerRepositoryInMemory implements ICustomerRepository {
   async findByPhone(phone: string): Promise<Customer> {
     return this.customers.find(customer => customer.phone === phone);
   }
+
+  async findByName(name: string): Promise<Customer> {
+    return this.customers.find(customer => customer.name === name);
+  }
 }
