@@ -8,3 +8,8 @@ export const customersRoutes = Router();
 const customerController = new CustommerController();
 
 customersRoutes.post('/', ensureAuthenticated, customerController.create);
+customersRoutes.get(
+  '/showcustomer',
+  ensureAuthenticated,
+  customerController.show,
+);

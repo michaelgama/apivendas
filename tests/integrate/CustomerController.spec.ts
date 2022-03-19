@@ -142,4 +142,52 @@ describe('Customer Controller', () => {
 
     expect(response.statusCode).toBe(400);
   });
+
+  it('should be able to show customer', async () => {
+    const responseToken = await request(app).post('/sessions').send({
+      email: 'admin@test.com',
+      password: 'admin',
+    });
+
+    const { token } = responseToken.body;
+
+    await request(app)
+      .post('/customers')
+      .send({
+        name: 'Customer',
+        email: 'customer_any@mail.com',
+        phone: '123456789',
+      })
+      .set({ Authorization: `Bearer ${token}` });
+
+    const response = await request(app)
+      .get('/customers/showcustomer?name=Customer')
+      .set({ Authorization: `Bearer ${token}` });
+
+    expect(response.statusCode).toBe(200);
+  });
+
+  it('should not be able to fetch a non-existent customer', async () => {
+    const responseToken = await request(app).post('/sessions').send({
+      email: 'admin@test.com',
+      password: 'admin',
+    });
+
+    const { token } = responseToken.body;
+
+    await request(app)
+      .post('/customers')
+      .send({
+        name: 'Customer',
+        email: 'customer_any@mail.com',
+        phone: '123456789',
+      })
+      .set({ Authorization: `Bearer ${token}` });
+
+    const response = await request(app)
+      .get('/customers/showcustomer?name=any_Customer')
+      .set({ Authorization: `Bearer ${token}` });
+
+    expect(response.statusCode).toBe(400);
+  });
 });
