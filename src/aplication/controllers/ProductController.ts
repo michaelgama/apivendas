@@ -1,11 +1,13 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { CreateProduct } from '../usecases/Product/CreateProduct';
-import { DeleteProduct } from '../usecases/Product/DeleteProduct';
-import { ListProducts } from '../usecases/Product/ListProducts';
-import { ShowProduct } from '../usecases/Product/ShowProduct';
-import { UpdateProduct } from '../usecases/Product/UpdateProduct';
+import {
+  CreateProduct,
+  DeleteProduct,
+  ListProducts,
+  ShowProduct,
+  UpdateProduct,
+} from '../usecases';
 
 export class ProductController {
   public async create(request: Request, response: Response): Promise<Response> {
