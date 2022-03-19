@@ -5,9 +5,9 @@
   "username": "docker",
   "password": "vendas",
   "database": "vendas",
-  "migrations": ["./src/infra/typeorm/migrations/*.ts"],
+  "migrations": ["./src/infra/database/migrations/*.ts"],
   "entities": ["./src/domain/entities/*.ts"],
   "cli": {
-    "migrationsDir": "./src/infra/typeorm/migrations"
+    "migrationsDir": "./src/infra/database/migrations"
   }
 }

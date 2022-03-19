@@ -6,8 +6,8 @@ import '../container';
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
 
+import createConnection from '../database';
 import { AppError } from '../errors/AppError';
-import createConnection from '../typeorm';
 import { router } from './routes';
 
 createConnection();

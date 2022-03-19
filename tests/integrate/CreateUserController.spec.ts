@@ -1,6 +1,6 @@
 import 'reflect-metadata';
+import { createConnection } from '@infra/database';
 import { app } from '@infra/http/app';
-import { createConnection } from '@infra/typeorm';
 import request from 'supertest';
 import { Connection } from 'typeorm';
 
