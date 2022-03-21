@@ -37,4 +37,9 @@ export class CustomerCore implements ICustomerRepository {
     const customer = await this.repository.findOne({ name });
     return customer;
   }
+
+  async findByCustomers(): Promise<Customer[]> {
+    const customers = await this.repository.find();
+    return customers;
+  }
 }

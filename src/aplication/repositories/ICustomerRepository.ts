@@ -6,4 +6,5 @@ export interface ICustomerRepository {
   findByEmail(email: string): Promise<Customer>;
   findByPhone(phone: string): Promise<Customer>;
   findByName(name: string): Promise<Customer>;
+  findByCustomers(): Promise<Customer[]>;
 }
