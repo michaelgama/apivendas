@@ -13,3 +13,4 @@ customersRoutes.get(
   ensureAuthenticated,
   customerController.show,
 );
+customersRoutes.get('/', ensureAuthenticated, customerController.list);
