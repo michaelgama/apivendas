@@ -2,8 +2,7 @@ import 'reflect-metadata';
 import { ICreateUser } from '@domain/models/ICreateUser';
 import { AppError } from '@infra/errors/AppError';
 
-import { AuthenticateUser } from '../../../src/aplication/usecases/User/AuthenticateUser';
-import { CreateUser } from '../../../src/aplication/usecases/User/CreateUser';
+import { AuthenticateUser, CreateUser } from '../../../src/aplication/usecases';
 import { UsersRepositoryInMemory } from '../../in-memory/UsersRepositoryInMemory';
 
 let authenticateUser: AuthenticateUser;

@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import { ListProducts } from '../../../src/aplication/usecases/Product/ListProducts';
+import { ListProducts } from '../../../src/aplication/usecases';
 import { ProductRepositoryInMemory } from '../../in-memory/ProductsRepositoryInMemory';
 
 let listProducts: ListProducts;

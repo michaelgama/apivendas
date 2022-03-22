@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { AppError } from '@infra/errors/AppError';
 
-import { DeleteProduct } from '../../../src/aplication/usecases/Product/DeleteProduct';
+import { DeleteProduct } from '../../../src/aplication/usecases';
 import { ProductRepositoryInMemory } from '../../in-memory/ProductsRepositoryInMemory';
 
 let deleteProduct: DeleteProduct;

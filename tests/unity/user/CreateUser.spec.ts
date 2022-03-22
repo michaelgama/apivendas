@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { AppError } from '@infra/errors/AppError';
 
-import { CreateUser } from '../../../src/aplication/usecases/User/CreateUser';
+import { CreateUser } from '../../../src/aplication/usecases';
 import { UsersRepositoryInMemory } from '../../in-memory/UsersRepositoryInMemory';
 
 let createUser: CreateUser;

@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import { ListCustomer } from '../../../src/aplication/usecases/Customer/ListCustomer';
+import { ListCustomer } from '../../../src/aplication/usecases';
 import { CustomerRepositoryInMemory } from '../../in-memory/CustomerRepositoryInMemory';
 
 let listCustomer: ListCustomer;
