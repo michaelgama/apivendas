@@ -8,4 +8,5 @@ export interface ICustomerRepository {
   findByName(name: string): Promise<Customer>;
   findByCustomers(): Promise<Customer[]>;
   findById(id: string): Promise<Customer>;
+  remove(id: Customer): Promise<void>;
 }

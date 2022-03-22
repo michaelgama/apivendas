@@ -40,4 +40,8 @@ export class CustomerRepositoryInMemory implements ICustomerRepository {
   async findById(): Promise<Customer> {
     return this.customers.find(customer => customer.id);
   }
+
+  async remove(): Promise<void> {
+    this.customers.splice(1);
+  }
 }

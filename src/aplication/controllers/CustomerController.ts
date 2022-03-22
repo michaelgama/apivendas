@@ -1,7 +1,13 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { CreateCustomer, ListCustomer, ShowCustomer } from '../usecases';
+import {
+  CreateCustomer,
+  DeleteCustomer,
+  ListCustomer,
+  ShowCustomer,
+  UpdateCustomer,
+} from '../usecases';
 
 export class CustommerController {
   public async create(request: Request, response: Response): Promise<Response> {
@@ -34,5 +40,26 @@ export class CustommerController {
     const products = await listCustomer.execute();
 
     return response.status(200).json(products);
+  }
+
+  public async update(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const { name, email, phone } = request.body;
+
+    const updateCustomer = container.resolve(UpdateCustomer);
+
+    const customers = await updateCustomer.execute({ id, name, email, phone });
+
+    return response.status(201).json(customers);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const removeCustomer = container.resolve(DeleteCustomer);
+
+    await removeCustomer.execute({ id });
+
+    return response.status(204).json([]);
   }
 }

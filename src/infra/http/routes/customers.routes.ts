@@ -14,3 +14,5 @@ customersRoutes.get(
   customerController.show,
 );
 customersRoutes.get('/', ensureAuthenticated, customerController.list);
+customersRoutes.put('/:id', ensureAuthenticated, customerController.update);
+customersRoutes.delete('/:id', ensureAuthenticated, customerController.delete);

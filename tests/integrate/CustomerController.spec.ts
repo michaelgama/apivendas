@@ -215,6 +215,130 @@ describe('Customer Controller', () => {
     expect(response.statusCode).toBe(200);
   });
 
+  it('should be able to update customer', async () => {
+    const responseToken = await request(app).post('/sessions').send({
+      email: 'admin@test.com',
+      password: 'admin',
+    });
+
+    const { token } = responseToken.body;
+
+    const customer = {
+      name: 'Customer_any',
+      email: 'customer_update@mail.com',
+      phone: '1234567895',
+    };
+
+    const response = await request(app)
+      .post('/customers')
+      .send(customer)
+      .set({ Authorization: `Bearer ${token}` });
+
+    const updateCustomers = {
+      ...customer,
+      name: 'update_customer',
+    };
+
+    const resposeUpdateCustomer = await request(app)
+      .put(`/customers/${response.body.id}`)
+      .send(updateCustomers)
+      .set({ Authorization: `Bearer ${token}` });
+
+    expect(resposeUpdateCustomer.statusCode).toBe(201);
+  });
+
+  it('should not be able to update a customer nonexist', async () => {
+    const responseToken = await request(app).post('/sessions').send({
+      email: 'admin@test.com',
+      password: 'admin',
+    });
+
+    const { token } = responseToken.body;
+
+    const customer = {
+      name: 'Customer_test',
+      email: 'customer_updated@mail.com',
+      phone: '6497352849',
+    };
+
+    const response = await request(app)
+      .post('/customers')
+      .send(customer)
+      .set({ Authorization: `Bearer ${token}` });
+
+    await request(app)
+      .delete(`/customers/${response.body.id}`)
+      .set({ Authorization: `Bearer ${token}` });
+
+    const updateCustomers = {
+      ...customer,
+      name: 'update_customer',
+    };
+
+    const resposeUpdateCustomer = await request(app)
+      .put(`/customers/${response.body.id}`)
+      .send(updateCustomers)
+      .set({ Authorization: `Bearer ${token}` });
+
+    expect(resposeUpdateCustomer.statusCode).toBe(400);
+  });
+
+  it('should be able to delete customer', async () => {
+    const responseToken = await request(app).post('/sessions').send({
+      email: 'admin@test.com',
+      password: 'admin',
+    });
+
+    const { token } = responseToken.body;
+
+    const customer = {
+      name: 'Customer_delete',
+      email: 'customer_remove@mail.com',
+      phone: '12345678728',
+    };
+
+    const response = await request(app)
+      .post('/customers')
+      .send(customer)
+      .set({ Authorization: `Bearer ${token}` });
+
+    const resposeDeleteCustomer = await request(app)
+      .delete(`/customers/${response.body.id}`)
+      .set({ Authorization: `Bearer ${token}` });
+
+    expect(resposeDeleteCustomer.statusCode).toBe(204);
+  });
+
+  it('should not be able to delete a customer nonexist', async () => {
+    const responseToken = await request(app).post('/sessions').send({
+      email: 'admin@test.com',
+      password: 'admin',
+    });
+
+    const { token } = responseToken.body;
+
+    const customer = {
+      name: 'Customer_any',
+      email: 'customer_any@email.com',
+      phone: '539872149',
+    };
+
+    const response = await request(app)
+      .post('/customers')
+      .send(customer)
+      .set({ Authorization: `Bearer ${token}` });
+
+    await request(app)
+      .delete(`/customers/${response.body.id}`)
+      .set({ Authorization: `Bearer ${token}` });
+
+    const resposeDeleteCustomer = await request(app)
+      .delete(`/customers/${response.body.id}`)
+      .set({ Authorization: `Bearer ${token}` });
+
+    expect(resposeDeleteCustomer.statusCode).toBe(400);
+  });
+
   afterAll(async () => {
     await connection.dropDatabase();
     await connection.close();

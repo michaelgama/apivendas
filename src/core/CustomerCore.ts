@@ -47,4 +47,8 @@ export class CustomerCore implements ICustomerRepository {
     const customer = await this.repository.findOne(id);
     return customer;
   }
+
+  async remove(id: Customer): Promise<void> {
+    await this.repository.remove(id);
+  }
 }

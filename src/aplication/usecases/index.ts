@@ -2,6 +2,7 @@ export * from './Customer/CreateCustomer';
 export * from './Customer/ShowCustomer';
 export * from './Customer/ListCustomer';
 export * from './Customer/UpdateCustomer';
+export * from './Customer/DeleteCustomer';
 export * from './Product/CreateProduct';
 export * from './Product/ShowProduct';
 export * from './Product/ListProducts';
