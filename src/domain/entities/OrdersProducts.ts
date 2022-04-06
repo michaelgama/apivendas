@@ -2,24 +2,28 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
+  JoinColumn,
+  ManyToOne,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 
-import { OrdersProducts } from './OrdersProducts';
+import { Order } from './Order';
+import { Product } from './Product';
 
-@Entity('products')
-export class Product {
+@Entity('orders_products')
+export class OrdersProducts {
   @PrimaryColumn()
   id: string;
 
-  @OneToMany(() => OrdersProducts, order_products => order_products.product)
-  order_products: OrdersProducts[];
+  @ManyToOne(() => Order, order => order.order_products)
+  @JoinColumn({ name: 'order_id' })
+  order: Order;
 
-  @Column()
-  name: string;
+  @ManyToOne(() => Product, product => product.order_products)
+  @JoinColumn({ name: 'product_id' })
+  product: Product;
 
   @Column('decimal')
   price: number;
