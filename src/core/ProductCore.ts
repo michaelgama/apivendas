@@ -1,7 +1,9 @@
 import { Product } from '@domain/entities/Product';
 import { ICreateProduct } from '@domain/models/ICreateProduct';
+import { IFindProducts } from '@domain/models/IFindProducts';
+import { IUpdateStockProduct } from '@domain/models/IUpdateStockProduct';
 import { IProductsRepository } from 'aplication/repositories/IProductsRepository';
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, In, Repository } from 'typeorm';
 
 export class ProductCore implements IProductsRepository {
   private repository: Repository<Product>;
@@ -45,5 +47,21 @@ export class ProductCore implements IProductsRepository {
 
   async remove(id: Product): Promise<void> {
     await this.repository.remove(id);
+  }
+
+  async findAllByIds(products: IFindProducts[]): Promise<Product[]> {
+    const productIds = products.map(product => product.id);
+
+    const existsProducts = await this.repository.find({
+      where: {
+        id: In(productIds),
+      },
+    });
+
+    return existsProducts;
+  }
+
+  async updateStock(products: IUpdateStockProduct[]): Promise<void> {
+    await this.repository.save(products);
   }
 }
