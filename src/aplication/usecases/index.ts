@@ -8,5 +8,7 @@ export * from './Product/ShowProduct';
 export * from './Product/ListProducts';
 export * from './Product/UpdateProduct';
 export * from './Product/DeleteProduct';
+export * from './Order/CreateOrder';
+export * from './Order/ShowOrder';
 export * from './User/CreateUser';
 export * from './User/AuthenticateUser';
