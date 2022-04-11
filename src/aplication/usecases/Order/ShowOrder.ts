@@ -10,7 +10,7 @@ interface IRequest {
 @injectable()
 export class ShowOrder {
   constructor(
-    @inject('')
+    @inject('OrderCore')
     private orderRepository: IOrderRepository,
   ) {}
 
