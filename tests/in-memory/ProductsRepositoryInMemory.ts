@@ -1,5 +1,7 @@
 import { Product } from '@domain/entities/Product';
 import { ICreateProduct } from '@domain/models/ICreateProduct';
+import { IFindProducts } from '@domain/models/IFindProducts';
+import { IUpdateStockProduct } from '@domain/models/IUpdateStockProduct';
 import { IProductsRepository } from 'aplication/repositories/IProductsRepository';
 import { v4 as uuidV4 } from 'uuid';
 
@@ -35,5 +37,23 @@ export class ProductRepositoryInMemory implements IProductsRepository {
 
   async remove(): Promise<void> {
     this.products.splice(1);
+  }
+
+  async findAllByIds(products: IFindProducts[]): Promise<Product[]> {
+    const existProducts = this.products.filter(product =>
+      products.includes(product),
+    );
+
+    return existProducts;
+  }
+
+  async updateStock(products: IUpdateStockProduct[]): Promise<void> {
+    const product = new Product();
+
+    Object.assign(product, {
+      products,
+    });
+
+    this.products.push(product);
   }
 }
