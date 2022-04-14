@@ -40,11 +40,13 @@ export class ProductRepositoryInMemory implements IProductsRepository {
   }
 
   async findAllByIds(products: IFindProducts[]): Promise<Product[]> {
-    const existProducts = this.products.filter(product =>
-      products.includes(product),
+    const productIds = products.map(product => product.id);
+
+    const productAll = this.products.filter(product =>
+      productIds.includes(product.id),
     );
 
-    return existProducts;
+    return productAll;
   }
 
   async updateStock(products: IUpdateStockProduct[]): Promise<void> {
