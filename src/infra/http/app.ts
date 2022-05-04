@@ -9,10 +9,13 @@ import express, { NextFunction, Request, Response } from 'express';
 
 import createConnection from '../database';
 import { AppError } from '../errors/AppError';
+import rateLimiter from './middleware/rateLimiter';
 import { router } from './routes';
 
 createConnection();
 const app = express();
+
+app.use(rateLimiter);
 
 app.use(express.json());
 
