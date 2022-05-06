@@ -7,5 +7,44 @@
     "contact": {
       "email": "michael.gama@hotmail.com"
     }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["Create User"],
+        "summary": "Create a user",
+        "description": "Create a new User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "user name sample",
+                  "email": "User email sample",
+                  "password": "User password sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    }
   }
 }
