@@ -1,0 +1,11 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Vendas Documentation",
+    "description": "This is an API Sales",
+    "version": "1.0.0",
+    "contact": {
+      "email": "michael.gama@hotmail.com"
+    }
+  }
+}
