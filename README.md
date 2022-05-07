@@ -2,7 +2,7 @@
 
 <br>
 
-## #💻 Projeto
+### 💻 Projet
 
 A API VENDAS é uma aplicação que desenvolvi com os meus conhecimentos adquirirdos em alguns cursos de NodeJs. Ela consiste basicamente em, criar um usuário, com altenticação e cadastrar produtos, clientes e ordens de comprar.
 
